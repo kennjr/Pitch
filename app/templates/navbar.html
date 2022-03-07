@@ -1,0 +1,19 @@
+<div>
+    {% block styles %}
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/navbar_styles.css')}}">
+    {% endblock %}
+
+    <div class="navbar_container">
+        <div class="home_nav" onclick="window.location.href='{{ url_for( 'main.index' ) }}';">
+            <p class="home_txt">Pitches</p>
+        </div>
+        <div class="nav_options">
+            <div class="new_pitch_container curved_btn" onclick="window.location.href='{{ url_for( 'main.view_comments' , pitch_id='19754' ) }}';">
+                <img src="/static/images/ic_add.svg" alt="Publish your pitch">
+<!--                <p class="plus_txt">+</p>-->
+                <p>New Pitch</p>
+            </div>
+            <img id="nav_profile_image" src="/static/images/ic_account_circle.svg" alt="Publish your pitch">
+        </div>
+    </div>
+</div>

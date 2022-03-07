@@ -1,0 +1,83 @@
+:root{
+    --primary-color: #dcdcdc;
+    --basic-font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.block_container{
+    padding-top: 10vh
+}
+
+.navbar_container{
+    background-color: #fff;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;/* vh */
+}
+
+.home_nav{
+    font-size: 18px;
+    font-weight: 600;
+    font-family: var(--basic-font);
+    padding-left: 3vw;
+}
+
+.home_nav:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.nav_options{
+    display: flex;
+    flex-direction: row;
+    padding-right: 5vw;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.new_pitch_container{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.new_pitch_container > img{
+    width: 3.5vw;
+    height: 3.5vh;
+}
+
+.new_pitch_container > p{
+    padding-right: 0.5vw;
+}
+
+#nav_profile_image{
+    width: 6vw;
+    height: 6vh;
+    padding-left: 0.5vw;
+    margin-left: 1vw;
+}
+
+#nav_profile_image:hover{
+    cursor: pointer;
+}
+
+.curved_btn{
+    background-color: #fff;
+    border-radius: 50px;
+    border-width: 1px;
+    border-color: #dcdcdc;
+    border-style: solid;
+    transition-duration: 0.4s;
+    padding: 0px 10px; /* vh */
+}
+
+.curved_btn:hover{
+    cursor: pointer;
+    background-color: var(--primary-color); /* Green */
+
+}
