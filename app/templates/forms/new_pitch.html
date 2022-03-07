@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Pitch</title>
+</head>
+<body>
+
+        {% block stylesheet %}
+            <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='css/forms_styles.css') }}"/>
+        {% endblock stylesheet %}
+
+        {% block javascript %}
+            <script src="{{ url_for('static',filename='js/forms_javascript.js') }}"></script>
+            <!-- The contents of myscript.js will be loaded inside the script tag -->
+        {% endblock %}
+        <div class="container">
+            <div class="form_header">
+                <p>New  Pitch</p>
+            </div>
+            <div class="form_body">
+                <form class="the_form">
+                    <div class="form_text_area_input">
+                        <textarea placeholder="Pitch" name="pitch_text" onkeyup="textAreaAdjust(this)" cols="30" rows="10" required></textarea>
+                    </div>
+                    <div id="pitch_category_opts_container">
+                        <label id="pitch_category_label" for='pitch_category'>Category :</label>
+                        <select name="pitch_category" id="pitch_category" required>
+                            <option value="0">Promotion pitch</option>
+                            <option value="1">Pickup lines</option>
+                            <option value="2">Interview pitch</option>
+                            <option value="3">Product pitch</option>
+                        </select>
+                    </div>
+                    <input type="submit" value="Publish" class="submit_btn">
+                </form>
+            </div>
+            <div class="form_footer">
+                <!--Was gon add the image button here, but it had to be within the form tag-->
+            </div>
+        </div>
+
+</body>
+</html>
