@@ -1,0 +1,27 @@
+{% macro populate_pitches(pitches_list) %}
+    {% for pitch in pitches_list %}
+        <div class="pitch_item_container">
+
+            <p>{{pitch.pitch_text}}</p>
+            <div class="pitch_item_actions_container">
+                <div class="pitch_item_voting_opts_container">
+                    <div class="vote_opt_container">
+                        <img src="/static/images/ic_up_vote.svg" alt="Upvote the pitch">
+                        <p>{{pitch.upvt_count}}</p>
+                    </div>
+                    <div class="vote_opt_container">
+                        <img src="/static/images/ic_down_vote.svg" alt="Down-vote the pitch">
+                        <p>{{pitch.dwnvt_count}}</p>
+                    </div>
+                </div>
+                <div class="pitch_item_comment_opts_container">
+                    <div class="vote_opt_container">
+                        <img src="/static/images/ic_comments.svg" alt="Comment on the pitch">
+                        <p>{{pitch.comments.length}}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endmacro %}
