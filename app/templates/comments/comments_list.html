@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+      <title>{{title}}</title>
+    {% else %}
+      <title>Comments</title>
+    {% endif %}
+</head>
+<body>
+    {% block stylesheet %}
+      <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='css/comments_styles.css') }}"/>
+    {% endblock stylesheet %}
+
+    <div class="navbar_container">
+        <div class="comment_nav_left_opts">
+            <img class="regular_img" src="/static/images/ic_back_arrow.svg" alt="Navigate to home">
+            <p id="comments_txt">Comments</p>
+        </div>
+    </div>
+
+    <div class="block_container">
+        <p>{{text}}</p>
+    </div>
+
+</body>
+</html>
