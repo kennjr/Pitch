@@ -49,7 +49,7 @@
     justify-content: center;
     font-family: var(--basic-font);
     background-color: var(--accent-color);
-    font-size: 20px;
+    font-size: 22px;
     overflow: auto;
     color: #fff;
     padding: 30px;
@@ -125,4 +125,23 @@
 .form_text_area_input textarea:focus{
     outline: none;
     resize: vertical;
+}
+
+input:focus{
+    outline: none;
+    resize: vertical;
+}
+
+.input_container{
+    width: 80%;
+    align-self: center;
+}
+
+.input_container > input{
+    width: 100%;
+    padding: 1vh 1vw;
+    margin: 0.75vh 0;
+    border-width: 1px;
+    border-radius: 4px;
+    font-size: 15px;
 }

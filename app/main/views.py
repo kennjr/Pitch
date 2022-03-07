@@ -29,3 +29,12 @@ def new_pitch():
     else:
         return render_template('forms/new_pitch.html')
 
+
+@main.route('/signup')
+def signup():
+    return render_template('forms/signup.html')
+
+
+@main.route('/login')
+def login():
+    return render_template('forms/login.html')
