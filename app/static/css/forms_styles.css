@@ -17,6 +17,27 @@
     border-radius: 5px;
 }
 
+.form_container{
+    display: block;
+}
+
+.close_form_img{
+    padding: 10px 20px;
+    margin: 0 0 auto 0;
+    overflow: hidden;
+    align: right;
+}
+
+.close_form_img:hover{
+    cursor: pointer;
+}
+
+.close_form_img:active{
+    cursor: pointer;
+    border-radius: 5px;
+    background:rgba(191, 191, 191, 0.5);
+}
+
 .form_footer{
     display: flex;
     flex-direction: column;
