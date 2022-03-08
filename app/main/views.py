@@ -1,4 +1,4 @@
-from flask import render_template, url_for
+from flask import render_template, url_for, session
 from flask import request as req
 from werkzeug.utils import redirect
 
@@ -8,8 +8,14 @@ from app.main import main
 @main.route('/')
 def index():
     """Render the index template"""
+    global pitches_filter
+    try:
+        pitches_filter = session["pitches_filter"]
+    except KeyError:
+        session["pitches_filter"] = "all"
+        pitches_filter = session["pitches_filter"]
 
-    return render_template('index.html', title="News App")
+    return render_template('index.html', title="", pitches_filter=pitches_filter)
 
 
 @main.route("/comments/<pitch_id>")
@@ -30,11 +36,8 @@ def new_pitch():
         return render_template('forms/new_pitch.html')
 
 
-@main.route('/signup')
-def signup():
-    return render_template('forms/signup.html')
+@main.route('/users/<user_id>')
+def go_to_profile(user_id):
+    user = "Sth"
+    return render_template('profile/profile.html', user=user, user_id=user_id)
 
-
-@main.route('/login')
-def login():
-    return render_template('forms/login.html')
