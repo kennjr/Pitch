@@ -24,5 +24,5 @@ If you run into any issues while interacting with the application, you can contr
 ## Future
 We're planning to add a sort feature so that the user can sort the pitches based on a specified sort param.
 
-### License
+### License 
 This software is publicly available under the [MIT](LICENSE) license
