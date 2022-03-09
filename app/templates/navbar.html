@@ -2,18 +2,44 @@
     {% block styles %}
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/navbar_styles.css')}}">
     {% endblock %}
+    {% block javascript %}
+            <script src="{{ url_for('static',filename='js/navbar_javascript.js') }}"></script>
+            <!-- The contents of myscript.js will be loaded inside the script tag -->
+    {% endblock %}
 
-    <div class="navbar_container">
-        <div class="home_nav" onclick="window.location.href='{{ url_for( 'main.new_pitch' ) }}';">
-            <p class="home_txt">Pitches</p>
-        </div>
-        <div class="nav_options">
-            <div class="new_pitch_container curved_btn" onclick="window.location.href='{{ url_for( 'main.view_comments' , pitch_id='19754' ) }}';">
-                <img src="/static/images/ic_add.svg" alt="Publish your pitch">
-<!--                <p class="plus_txt">+</p>-->
-                <p>New Pitch</p>
+    <div class="main_nav_container">
+        <div class="navbar_container">
+            <div class="home_nav" onclick="window.location.href='{{ url_for( 'main.new_pitch' ) }}';">
+                <p class="home_txt">Pitches</p>
             </div>
-            <img id="nav_profile_image" src="/static/images/ic_account_circle.svg" alt="Publish your pitch">
+            <div class="nav_options">
+                <img class="hide_element" id="filter_pitches_list_img" src="/static/images/ic_filter.svg" alt="Filter pitches list" onclick="window.location.href='{{ url_for( 'main.go_to_profile', user_id='12654' ) }}';">
+                <div class="new_pitch_container curved_btn" onclick="window.location.href='{{ url_for( 'main.view_comments' , pitch_id='19754' ) }}';">
+                    <img src="/static/images/ic_add.svg" alt="Publish your pitch">
+    <!--                <p class="plus_txt">+</p>-->
+                    <p>New Pitch</p>
+                </div>
+                <img id="nav_profile_image" src="/static/images/ic_account_circle.svg" alt="Access your account" onclick="window.location.href='{{ url_for( 'main.go_to_profile', user_id='12654' ) }}';">
+            </div>
+        </div>
+        <div class="nav_category_filter_opts_container">
+            <div class="category_filter_item_container curved_btn" onclick="window.location.href='{{ url_for( 'main.index' ) }}';">
+                <p>All</p>
+            </div>
+            <div class="category_filter_item_container curved_btn" onclick="window.location.href='{{ url_for( 'main.go_to_pitches_category', category_str='interview_pitch' ) }}';">
+                <p>Interview Pitch</p>
+            </div>
+            <div class="category_filter_item_container curved_btn" onclick="window.location.href='{{ url_for( 'main.go_to_pitches_category', category_str='product_pitch' ) }}';">
+                <p>Product Pitch</p>
+            </div>
+            <div class="category_filter_item_container curved_btn" onclick="window.location.href='{{ url_for( 'main.go_to_pitches_category', category_str='pickup_lines' ) }}';">
+                <p>Pickup lines</p>
+            </div>
+            <div class="category_filter_item_container curved_btn" onclick="window.location.href='{{ url_for( 'main.go_to_pitches_category', category_str='promotion_pitch' ) }}';">
+                <p>Promotion Pitch</p>
+            </div>
         </div>
     </div>
+
+
 </div>

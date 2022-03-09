@@ -25,3 +25,13 @@
         </div>
     {% endfor %}
 {% endmacro %}
+
+
+{% macro show_pitches_comments(comments_list) %}
+    {% for comment in comments_list %}
+        <div class="comment_item_container">
+            <p>{{comment.comment_txt}}</p>
+            <p> - {{comment.comment_by}}</p>
+        </div>
+    {% endfor %}
+{% endmacro %}

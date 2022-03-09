@@ -9,6 +9,8 @@ flask = "*"
 flask-sqlalchemy = "*"
 psycopg2 = "*"
 flask-wtf = "*"
+flask-mail = "*"
+flask-script = "==2.0.5"
 
 [dev-packages]
 
