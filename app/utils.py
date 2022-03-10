@@ -25,3 +25,24 @@ def convert_num_to_category(default_category_str):
         else:
             return "All"
 
+
+def convert_ids_string_to_array(ids_str: str):
+    global ids_array
+    if ids_str is not "":
+        ids_array = []
+        split_str = ids_str.split(",")
+        for item in split_str:
+            if item is not "" and item.isnumeric():
+                ids_array.append(int(item.strip()))
+
+    return ids_array
+
+
+def convert_ids_array_to_string(ids_array: list):
+    if ids_array:
+        ids_str = ""
+        for my_id in ids_array:
+            ids_str += f",{my_id}"
+
+    return ids_str
+
