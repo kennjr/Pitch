@@ -9,12 +9,12 @@
 
     <div class="main_nav_container">
         <div class="navbar_container">
-            <div class="home_nav" onclick="window.location.href='{{ url_for( 'main.new_pitch' ) }}';">
+            <div class="home_nav" onclick="window.location.href='{{ url_for( 'main.index' ) }}';">
                 <p class="home_txt">Pitches</p>
             </div>
             <div class="nav_options">
                 <img class="hide_element" id="filter_pitches_list_img" src="/static/images/ic_filter.svg" alt="Filter pitches list" onclick="window.location.href='{{ url_for( 'main.go_to_profile', user_id='12654' ) }}';">
-                <div class="new_pitch_container curved_btn" onclick="window.location.href='{{ url_for( 'main.view_comments' , pitch_id='19754' ) }}';">
+                <div class="new_pitch_container curved_btn" onclick="window.location.href='{{ url_for( 'main.new_pitch' ) }}';">
                     <img src="/static/images/ic_add.svg" alt="Publish your pitch">
     <!--                <p class="plus_txt">+</p>-->
                     <p>New Pitch</p>
