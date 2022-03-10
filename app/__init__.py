@@ -1,12 +1,14 @@
 from config import config_options
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
+
 
 db = SQLAlchemy()
-# login_manager = LoginManager()
-# login_manager.session_protection = 'strong'
+login_manager = LoginManager()
+login_manager.session_protection = 'strong'
 # We prefix the login endpoint with the blueprint name because it is located inside a blueprint.
-# login_manager.login_view = 'auth.login'
+login_manager.login_view = 'auth.login'
 # bootstrap = Bootstrap()
 
 # photos = UploadSet('photos', IMAGES)
@@ -28,7 +30,7 @@ def create_app(config_name):
     # from .auth import auth as auth_blueprint
     # app.register_blueprint(auth_blueprint, url_prefix='/authenticate')
 
-    # login_manager.init_app(app)
+    login_manager.init_app(app)
 
     return app
 
