@@ -4,7 +4,7 @@ from werkzeug.utils import redirect
 from flask_login import current_user
 
 from app.main import main
-from app.utils import format_pitches_array
+from app.utils import format_pitches_array, convert_lowercase_category_to_num, format_comments_array
 
 
 @main.route('/')
@@ -26,12 +26,32 @@ def index():
 def view_comments(pitch_id):
 
     comment_txt = req.args.get("comment")
-
     if comment_txt:
-        print(f"The comment is {comment_txt}")
-        return render_template('comments/comments_list.html', title=f"Comments - {pitch_id}", text=f"{pitch_id}")
+        from app.models import Comment
+        if comment_txt is not None:
+            from datetime import datetime
+
+            now = datetime.now()
+            comment = Comment(comment_txt=comment_txt, creator_id=current_user.id, pitch_id=pitch_id,
+                              timestamp=now.timestamp())
+            from app.models import Pitch
+
+            from app import db
+            db.session.add(comment)
+            # pitch = Pitch.query().filter(Pitch.id == pitch_id).first()
+            pitch = Pitch.query.filter_by(id=pitch_id).first()
+            setattr(pitch, 'comments', Pitch.comments + ",1")
+            db.session.commit()
+
+        # comments = Comment.query.filter_by(pitch_id=pitch_id)
+        # comments_list = format_comments_array(comments)
+        return redirect(url_for('main.view_comments', pitch_id=pitch_id))
+        # return render_template('comments/comments_list.html', title=f"Comments - {pitch_id}", comments_list=comments_list)
     else:
-        return render_template('comments/comments_list.html', title=f"Comments - {pitch_id}", text=f"{pitch_id}")
+        from app.models import Comment
+        comments = Comment.query.filter_by(pitch_id=pitch_id)
+        comments_list = format_comments_array(comments)
+        return render_template('comments/comments_list.html', title=f"Comments - {pitch_id}", comments_list=comments_list)
 
 
 @main.route('/new-pitch')
@@ -39,9 +59,6 @@ def new_pitch():
     pitch_txt = req.args.get("pitch_text")
     pitch_category = req.args.get("pitch_category")
     if pitch_txt:
-        from app.utils import convert_category_to_num
-        # pitch_category = convert_category_to_num(pitch_category)
-        #
         if pitch_txt is not None and pitch_category is not None:
             from app.models import Pitch
             from datetime import datetime
@@ -67,16 +84,31 @@ def go_to_profile(user_id):
 
 @main.route('/category/<category_str>')
 def go_to_pitches_category(category_str):
-
     if category_str == "interview_pitch":
-        # todo Make a request for all the pitches with this category, after converting it to the db format
-        return render_template('category_pitches.html', category=current_user.email)
+        from app.models import Pitch
+        formatted_category = convert_lowercase_category_to_num(category_str)
+        pitches = Pitch.query.filter_by(pitch_category=formatted_category)
+        formatted_pitches = format_pitches_array(pitches)
+
+        return render_template('category_pitches.html', category=current_user.email, pitches_list=formatted_pitches)
     if category_str == "product_pitch":
-        # todo Make a request for all the pitches with this category, after converting it to the db format
-        return render_template('category_pitches.html', category=current_user)
+        from app.models import Pitch
+        formatted_category = convert_lowercase_category_to_num(category_str)
+        pitches = Pitch.query.filter_by(pitch_category=formatted_category)
+        formatted_pitches = format_pitches_array(pitches)
+
+        return render_template('category_pitches.html', category=current_user.email, pitches_list=formatted_pitches)
     if category_str == "pickup_lines":
-        # todo Make a request for all the pitches with this category, after converting it to the db format
-        return render_template('category_pitches.html', category=current_user)
+        from app.models import Pitch
+        formatted_category = convert_lowercase_category_to_num(category_str)
+        pitches = Pitch.query.filter_by(pitch_category=formatted_category)
+        formatted_pitches = format_pitches_array(pitches)
+
+        return render_template('category_pitches.html', category=current_user.email, pitches_list=formatted_pitches)
     if category_str == "promotion_pitch":
-        # todo Make a request for all the pitches with this category, after converting it to the db format
-        return render_template('category_pitches.html', category=current_user)
+        from app.models import Pitch
+        formatted_category = convert_lowercase_category_to_num(category_str)
+        pitches = Pitch.query.filter_by(pitch_category=formatted_category)
+        formatted_pitches = format_pitches_array(pitches)
+
+        return render_template('category_pitches.html', category=current_user.email, pitches_list=formatted_pitches)
