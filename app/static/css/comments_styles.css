@@ -5,6 +5,7 @@
 
 .block_container{
     padding-top: 10vh;
+    padding-bottom: 10vh;
 }
 
 .navbar_container{
@@ -16,6 +17,22 @@
     justify-content: space-between;
     align-items: center;
     padding: 5px 20px;/* vh */
+}
+
+.comment_sect_container{
+    position: fixed;
+
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.comment_form{
+    padding: 2vh 4vw;
 }
 
 .comment_nav_left_opts{
@@ -91,4 +108,29 @@
 .comment_text_el{
     font-size: 16px;
     font-family: var(--basic-font);
+}
+
+.comment_input{
+    width: 60vw;
+    align-self: flex-start;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-width: 1px;
+    font-size: 16px;
+    padding: 0.5vh 1vw;
+    margin: 10px 1vw;
+}
+
+.submit_btn{
+    outline: none;
+    padding: 0.5vh 0.75vw;
+}
+
+.submit_btn:hover{
+    cursor: pointer;
+}
+
+.comment_input:focus{
+    outline: none;
 }

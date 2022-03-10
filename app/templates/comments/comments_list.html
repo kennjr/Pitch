@@ -18,11 +18,7 @@
             <img class="regular_img" src="/static/images/ic_back_arrow.svg" alt="Navigate to home" onclick="window.location.href='{{ url_for( 'main.index' ) }}';">
             <p id="comments_txt">Comments</p>
         </div>
-        <div class="new_comment_container curved_btn">
-                <img src="/static/images/ic_add.svg" alt="Comment on the pitch">
-<!--                <p class="plus_txt">+</p>-->
-                <p>Comment</p>
-        </div>
+
     </div>
 
     <div class="block_container">
@@ -35,8 +31,37 @@
                 <p class="comment_text_el">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore consectetur, beatae praesentium officia velit, voluptates repudiandae reprehenderit nostrum nemo fugiat sunt, quam aliquid molestias iste.</p>
                 <p> - <a href="{{ url_for('auth.signup') }}">19732</a></p>
             </div>
+            <div class="comment_item_container">
+                <p class="comment_text_el">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore consectetur, beatae praesentium officia velit, voluptates repudiandae reprehenderit nostrum nemo fugiat sunt, quam aliquid molestias iste.</p>
+                <p> - <a href="{{ url_for('auth.signup') }}">19732</a></p>
+            </div>
+            <div class="comment_item_container">
+                <p class="comment_text_el">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore consectetur, beatae praesentium officia velit, voluptates repudiandae reprehenderit nostrum nemo fugiat sunt, quam aliquid molestias iste.</p>
+                <p> - <a href="{{ url_for('auth.signup') }}">19732</a></p>
+            </div>
+            <div class="comment_item_container">
+                <p class="comment_text_el">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore consectetur, beatae praesentium officia velit, voluptates repudiandae reprehenderit nostrum nemo fugiat sunt, quam aliquid molestias iste.</p>
+                <p> - <a href="{{ url_for('auth.signup') }}">19732</a></p>
+            </div>
+            <div class="comment_item_container">
+                <p class="comment_text_el">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore consectetur, beatae praesentium officia velit, voluptates repudiandae reprehenderit nostrum nemo fugiat sunt, quam aliquid molestias iste.</p>
+                <p> - <a href="{{ url_for('auth.signup') }}">19732</a></p>
+            </div>
+            <div class="comment_item_container">
+                <p class="comment_text_el">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore consectetur, beatae praesentium officia velit, voluptates repudiandae reprehenderit nostrum nemo fugiat sunt, quam aliquid molestias iste.</p>
+                <p> - <a href="{{ url_for('auth.signup') }}">19732</a></p>
+            </div>
+            <div class="comment_item_container">
+                <p class="comment_text_el">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore consectetur, beatae praesentium officia velit, voluptates repudiandae reprehenderit nostrum nemo fugiat sunt, quam aliquid molestias iste.</p>
+                <p> - <a href="{{ url_for('auth.signup') }}">19732</a></p>
+            </div>
         </div>
     </div>
-
+    <div class="comment_sect_container">
+        <form class="comment_form">
+            <input type="text" placeholder="Comment" name="comment" class="comment_input" required>
+            <input type="submit" value="Add comment" class="submit_btn">
+        </form>
+    </div>
 </body>
 </html>
