@@ -2,7 +2,6 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from app import db, login_manager
-from app.main import main
 
 
 class User(db.Model, UserMixin):
@@ -78,7 +77,26 @@ class Pitch(db.Model):
     dwnvt = db.Column(db.String)
     timestamp = db.Column(db.String(255))
     comments = db.Column(db.String)
+    pitch_category = db.Column(db.Integer)
 
     def __repr__(self):
         return f'Pitch {self.pitch_txt}'
+
+
+class Comment(db.Model):
+    __tablename__ = "comments"
+
+    id = db.Column(db.Integer, primary_key=True)
+    comment_txt = db.Column(db.String)
+
+    creator_id = db.Column(db.Integer)
+    pitch_id = db.Column(db.Integer)
+    timestamp = db.Column(db.String(255))
+
+    def __repr__(self):
+        return f'Comment {self.pitch_txt}'
+
+
+
+
 
