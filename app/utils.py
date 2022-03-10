@@ -1,3 +1,6 @@
+from app.models import Comment
+
+
 def convert_category_to_num(default_category_str):
     if default_category_str != "":
         if default_category_str == "Promotion pitch":
@@ -7,6 +10,18 @@ def convert_category_to_num(default_category_str):
         elif default_category_str == "Interview pitch":
             return 2
         elif default_category_str == "Product pitch":
+            return 3
+
+
+def convert_lowercase_category_to_num(default_category_str):
+    if default_category_str != "":
+        if default_category_str == "promotion_pitch":
+            return 0
+        elif default_category_str == "pickup_lines":
+            return 1
+        elif default_category_str == "interview_pitch":
+            return 2
+        elif default_category_str == "product_pitch":
             return 3
 
 
@@ -66,3 +81,22 @@ def format_pitches_array(pitches_array):
         return formatted_pitches_array
     else:
         return pitches_array
+
+
+def format_comments_array(comments_array):
+    if comments_array:
+
+        formatted_comments_array = []
+        for comment in comments_array:
+            pitch_id = comment.pitch_id
+            comment_txt = comment.comment_txt
+            creator_id = comment.creator_id
+            timestamp = comment.timestamp
+
+            formatted_comment = Comment(comment_txt=comment_txt, creator_id=creator_id, pitch_id=pitch_id,
+                                        timestamp=timestamp)
+
+            formatted_comments_array.append(formatted_comment)
+        return formatted_comments_array
+    else:
+        return []
