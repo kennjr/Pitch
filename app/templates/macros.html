@@ -2,26 +2,29 @@
     {% for pitch in pitches_list %}
         <div class="pitch_item_container">
 
-            <p>{{pitch.pitch_text}}</p>
+            <p>{{pitch.pitch_txt}}</p>
             <div class="pitch_item_actions_container">
                 <div class="pitch_item_voting_opts_container">
                     <div class="vote_opt_container">
                         <img src="/static/images/ic_up_vote.svg" alt="Upvote the pitch">
-                        <p>{{pitch.upvt_count}}</p>
+                        <p>{{pitch.upvt}}</p>
                     </div>
                     <div class="vote_opt_container">
                         <img src="/static/images/ic_down_vote.svg" alt="Down-vote the pitch">
-                        <p>{{pitch.dwnvt_count}}</p>
+                        <p>{{pitch.dwnvt}}</p>
                     </div>
                 </div>
                 <div class="pitch_item_comment_opts_container">
-                    <div class="vote_opt_container">
+                    <div class="vote_opt_container" onclick="window.location.href='{{ url_for( 'main.view_comments' , pitch_id=pitch.id ) }}';">
                         <img src="/static/images/ic_comments.svg" alt="Comment on the pitch">
-                        <p>{{pitch.comments.length}}</p>
+                        <p>{{pitch.comments}}</p>
                     </div>
 
                 </div>
             </div>
+            {%- if not loop.last %}
+                <div class="divider"></div>
+            {% endif %}
         </div>
     {% endfor %}
 {% endmacro %}
@@ -30,8 +33,8 @@
 {% macro show_pitches_comments(comments_list) %}
     {% for comment in comments_list %}
         <div class="comment_item_container">
-            <p>{{comment.comment_txt}}</p>
-            <p> - {{comment.comment_by}}</p>
+            <p class="comment_text_el">{{comment.comment_txt}}</p>
+            <p> - <a href="{{ url_for('auth.signup') }}">{{comment.creator_id}}</a></p>
         </div>
     {% endfor %}
 {% endmacro %}
